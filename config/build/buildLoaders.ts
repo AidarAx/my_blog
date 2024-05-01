@@ -17,6 +17,17 @@ export function BuildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     ]
   }
 
+  const babelLoader = {
+    test: /\.m?js$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  }
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -43,9 +54,10 @@ export function BuildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   }
 
   return [
-    typescriptLoader,
-    cssLoader,
+    fileLoader,
     svgLoader,
-    fileLoader
+    babelLoader,
+    typescriptLoader,
+    cssLoader
   ]
 }
