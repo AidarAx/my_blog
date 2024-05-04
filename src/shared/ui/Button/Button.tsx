@@ -3,7 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import * as cls from './Button.module.scss'
 
 export enum ThemeButton {
-  CLEAR = 'clear'
+  CLEAR = 'clear',
+  BORDER = 'border'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
