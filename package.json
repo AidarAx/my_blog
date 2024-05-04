@@ -10,14 +10,17 @@
     "eslint:ts": "npx eslint \"**/*.{ts, tsx}\"",
     "eslint:ts:fix": "npx eslint \"**/*.{ts, tsx}\" --fix",
     "stylelint:scss": "npx stylelint \"**/*.scss\"",
-    "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix"
+    "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+    "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
+    "@babel/preset-typescript": "^7.24.1",
     "@svgr/webpack": "^8.1.0",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
@@ -36,6 +39,8 @@
     "eslint-plugin-react": "^7.34.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^2.9.0",
     "react-refresh": "^0.14.2",
     "react-refresh-webpack-plugin": "^0.1.0",

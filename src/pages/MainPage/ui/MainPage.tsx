@@ -4,7 +4,7 @@ const MainPage = () => {
   const { t } = useTranslation()
 
   return (
-    <h1>{t('Главная страница')}</h1>
+    <div>{t('Главная страница')}</div>
   )
 }
 
