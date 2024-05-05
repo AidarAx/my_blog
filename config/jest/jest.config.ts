@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest'
+import path from 'path'
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -28,9 +29,9 @@ const config: Config = {
   // coverageDirectory: undefined,
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    '/node_modules/'
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -74,7 +75,8 @@ const config: Config = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
-    'node_modules'
+    'node_modules',
+    '<rootDir>src/'
   ],
 
   // An array of file extensions your modules use
@@ -124,6 +126,17 @@ const config: Config = {
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
+
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+
+  moduleNameMapper: {
+    '\\.(css|scss)$': '<rootDir>config/jest/identity-obj-proxy/identity-obj-proxy-esm.ts',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
+
+  // modulePaths: [
+  //   '<rootDir>src'
+  // ],
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
