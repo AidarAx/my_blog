@@ -9,7 +9,7 @@ interface PageErrorProps {
   className?: string
 }
 
-const PageError = ({ className }: PageErrorProps) => {
+export const PageError = ({ className }: PageErrorProps) => {
   const { t } = useTranslation()
 
   const reloadPage = () => {
@@ -19,11 +19,9 @@ const PageError = ({ className }: PageErrorProps) => {
   return (
     <div className={classNames(cls.pageError, {}, [className])}>
       <p>{t('Произошла непредвиденная ошибка')}</p>
-      <Button onClick={reloadPage} className={cls.margin} theme={ThemeButton.BORDER}>
+      <Button onClick={reloadPage} className={cls.margin} theme={ThemeButton.OUTLINE}>
         {t('Обновить страницу')}
       </Button>
     </div>
   )
 }
-
-export default PageError
