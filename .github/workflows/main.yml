@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 jobs:
-  pipeline:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,14 +18,67 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - name: install modules
+
+      - name: Install dependencies
         run: npm install
-      - name: build production project
+
+      - name: Build production project
         run: npm run build:prod
-      - name: linting typescript
+
+  linting:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 20 ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Linting typescript
         run: npm run eslint:ts
-      - name: linting css
+
+      - name: Linting css
         run: npm run stylelint:scss
+
+
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 20 ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
       - name: unit testing
         run: npm run test:unit
+
+
+  ui-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Chromatic
+        run: npm run test:ui
 
