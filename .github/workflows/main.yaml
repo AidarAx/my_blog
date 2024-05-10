@@ -29,5 +29,5 @@ jobs:
       - name: unit testing
         run: npm run test:unit
       - name: Run Chromatic
-        uses: npm run test:chromatic
+        run: npm run test:chromatic
 
