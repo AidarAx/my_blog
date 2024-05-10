@@ -29,7 +29,7 @@ jobs:
       - name: unit testing
         run: npm run test:unit
       - name: Run Chromatic
-        uses: chromaui/action@latest
+        uses: npm run test:chromatic
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
