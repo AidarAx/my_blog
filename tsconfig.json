@@ -23,6 +23,6 @@
   "include": [
     "./src",
     "./config",
-    "./config/jest/setupTests.ts",
+    "./webpack.config.ts"
   ]
 }
