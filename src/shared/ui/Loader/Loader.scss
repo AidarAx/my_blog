@@ -1,14 +1,11 @@
-.lds-ellipsis {
-  /* change color here */
-  color: #1c4c5b
-}
-
 .lds-ellipsis,
 .lds-ellipsis div {
   box-sizing: border-box;
 }
 
 .lds-ellipsis {
+  /* change color here */
+  color: #1c4c5b;
   display: inline-block;
   position: relative;
   width: 80px;
