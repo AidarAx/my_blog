@@ -11,9 +11,9 @@
     "eslint:ts:fix": "npx eslint \"**/*.{ts, tsx}\" --fix",
     "stylelint:scss": "npx stylelint \"**/*.scss\"",
     "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "author": "",
   "license": "ISC",
