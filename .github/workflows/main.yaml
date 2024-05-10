@@ -30,6 +30,4 @@ jobs:
         run: npm run test:unit
       - name: Run Chromatic
         uses: npm run test:chromatic
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
