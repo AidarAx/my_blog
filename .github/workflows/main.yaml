@@ -28,4 +28,8 @@ jobs:
         run: npm run stylelint:scss
       - name: unit testing
         run: npm run test:unit
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 

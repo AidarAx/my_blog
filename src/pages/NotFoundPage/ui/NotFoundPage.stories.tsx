@@ -11,11 +11,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const NotFoundPageLight: Story = {
+export const Light: Story = {
   args: {}
 }
 
-export const NotFoundPageDark: Story = {
+export const Dark: Story = {
   args: {},
   decorators: [
     ThemeDecorator(Theme.DARK)
