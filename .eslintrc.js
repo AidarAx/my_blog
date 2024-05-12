@@ -28,7 +28,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
@@ -39,6 +40,8 @@ module.exports = {
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/no-unsafe-argument": "warn",
-        "i18next/no-literal-string": ['error', {markupOnly: true}]
+        "i18next/no-literal-string": ['error', {markupOnly: true}],
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
     }
 }
