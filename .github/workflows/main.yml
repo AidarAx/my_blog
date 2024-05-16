@@ -6,12 +6,41 @@ on:
     branches: [ main ]
 
 jobs:
+
+
+
+  install-cache:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: |
+          npm install
+
+
+
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 20.x ]
-    needs: [linting, unit-test, ui-test]
+    needs: [install-cache, linting, unit-test, ui-test]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -19,17 +48,26 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+      - name: Restore npm dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       - name: Build production project
         run: npm run build:prod
+
+
 
   linting:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 20.x ]
+    needs: install-cache
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -37,14 +75,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+      - name: Restore npm dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       - name: Linting typescript
         run: npm run eslint:ts
 
       - name: Linting css
         run: npm run stylelint:scss
+
 
 
   unit-test:
@@ -59,11 +104,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+      - name: Restore npm dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       - name: unit testing
         run: npm run test:unit
+
 
 
   ui-test:
@@ -74,8 +126,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install dependencies
-        run: npm install
+      - name: Restore npm dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       - name: Run Chromatic
         run: npm run test:ui
