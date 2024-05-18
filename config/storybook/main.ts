@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5'
 import path from 'path'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 import { DefinePlugin, RuleSetRule } from 'webpack'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
 const config: StorybookConfig = {
   stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -34,13 +35,22 @@ const config: StorybookConfig = {
     autodocs: 'tag'
   },
   webpackFinal: async (config) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    config.resolve.modules.push(path.resolve(__dirname, '..', '..', 'src'))
+    if (config.resolve) {
+      config.resolve.plugins = [
+        ...(config.resolve.plugins ?? []),
+        new TsconfigPathsPlugin({
+          extensions: config.resolve.extensions
+        })
+      ]
+    }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    config.resolve.extensions.push('.tsx', '.ts', '.js')
+    if (config.plugins) {
+      config.plugins.push(
+        new DefinePlugin({
+          __IS_DEV__: true
+        })
+      )
+    }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
@@ -58,14 +68,6 @@ const config: StorybookConfig = {
       enforce: 'pre',
       loader: require.resolve('@svgr/webpack')
     })
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    config.plugins.push(
-      new DefinePlugin({
-        __IS_DEV__: true
-      })
-    )
 
     return config
   }
