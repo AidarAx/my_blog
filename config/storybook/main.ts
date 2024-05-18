@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-webpack5'
-import path from 'path'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 import { DefinePlugin, RuleSetRule } from 'webpack'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
