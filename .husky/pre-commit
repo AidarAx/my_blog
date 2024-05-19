@@ -1,0 +1,2 @@
+npm run eslint:ts
+npm run stylelint:scss
