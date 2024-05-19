@@ -3,7 +3,6 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest'
 import path from 'path'
 import { JestConfigWithTsJest, pathsToModuleNameMapper } from 'ts-jest'
 import { compilerOptions } from '../../tsconfig.json'
