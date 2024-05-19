@@ -16,9 +16,14 @@ export const LoginForm = (props: LoginFormProps) => {
     className
   } = props
 
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+  }
+
   return (
     <form
       className={classNames(cls.loginForm, {}, [className])}
+      onSubmit={onSubmit}
     >
       <Input
         type="text"
@@ -30,7 +35,7 @@ export const LoginForm = (props: LoginFormProps) => {
         className={cls.input}
         placeholder={t('Введите пороль')}
       />
-      <Button className={cls.loginBtn}>
+      <Button className={cls.loginBtn} type='submit'>
         {t('Войти')}
       </Button>
     </form>

@@ -5,8 +5,10 @@
 
 import type { Config } from 'jest'
 import path from 'path'
+import { JestConfigWithTsJest, pathsToModuleNameMapper } from 'ts-jest'
+import { compilerOptions } from '../../tsconfig.json'
 
-const config: Config = {
+const config: JestConfigWithTsJest = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -78,7 +80,7 @@ const config: Config = {
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
     'node_modules',
-    '<rootDir>src/'
+    '<rootDir>src'
   ],
 
   // An array of file extensions your modules use
@@ -133,16 +135,17 @@ const config: Config = {
 
   moduleNameMapper: {
     '\\.(css|scss)$': '<rootDir>config/jest/identity-obj-proxy/identity-obj-proxy-esm.ts',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' })
   },
 
-  // modulePaths: [
-  //   '<rootDir>src'
-  // ],
+  modulePaths: [
+    compilerOptions.baseUrl
+  ],
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
-  //   "<rootDir>"
+  //   '<rootDir>src'
   // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner

@@ -17,11 +17,11 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false)
-  }, [])
+  }, [isAuthModal])
 
   const onShowModal = useCallback(() => {
     setIsAuthModal(true)
-  }, [])
+  }, [isAuthModal])
 
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
