@@ -14,7 +14,7 @@ const preview: Preview = {
     }
   },
   decorators: [
-    StoreDecorator,
+    StoreDecorator(),
     RouterDecorator,
     ThemeDecorator(Theme.LIGHT)
   ]
