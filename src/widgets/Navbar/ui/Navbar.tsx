@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
+import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice'
 
 interface NavbarProps {
   className?: string
@@ -26,7 +27,9 @@ export const Navbar = ({ className }: NavbarProps) => {
   }, [])
 
   const onLogout = useCallback(() => {
+    setIsAuthModal(false)
     dispatch(userActions.logout())
+    dispatch(loginActions.clearAuthData())
   }, [dispatch])
 
   if (authData) {
@@ -44,13 +47,12 @@ export const Navbar = ({ className }: NavbarProps) => {
       <Button onClick={onShowModal} theme={ButtonTheme.CLEAR_INVERTED} className={cls.authBtn}>
         {t('Войти')}
       </Button>
-      {/* eslint-disable-next-line i18next/no-literal-string */}
-      <LoginModal
-        isOpen={isAuthModal}
-        onClose={onCloseModal}
-      >
-
-      </LoginModal>
+      {isAuthModal && (
+        <LoginModal
+          isOpen={isAuthModal}
+          onClose={onCloseModal}
+        />
+      )}
     </div>
   )
 }

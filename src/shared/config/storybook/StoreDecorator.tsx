@@ -1,10 +1,16 @@
 import { StoryFn } from '@storybook/react'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
+import { ReducersMapObject } from '@reduxjs/toolkit'
+import { loginReducers } from 'features/AuthByUsername/model/slice/loginSlice'
 
-export const StoreDecorator = (store?: Partial<StateSchema>) => (Story: StoryFn) => {
+const defaultAsyncReducers: Partial<ReducersMapObject<StateSchema>> = {
+  loginForm: loginReducers
+}
+
+export const StoreDecorator = (store?: Partial<StateSchema>, asyncReducers?: Partial<ReducersMapObject<StateSchema>>) => (Story: StoryFn) => {
   if (store) {
     return (
-      <StoreProvider initialState={store}>
+      <StoreProvider initialState={store} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
         <Story/>
       </StoreProvider>
     )

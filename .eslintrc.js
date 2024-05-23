@@ -43,6 +43,7 @@ module.exports = {
         "i18next/no-literal-string": ['error', {markupOnly: true}],
         "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
         "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "@typescript-eslint/no-dynamic-delete": "warn"
     }
 }

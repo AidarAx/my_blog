@@ -7,9 +7,9 @@
   "Произошла непредвиденная ошибка": "An unexpected error occurred",
   "Обновить страницу": "Refresh the page",
   "Короткий язык": "En",
-  "Войти": "Login",
+  "Войти": "Sign in",
   "Введите username": "Enter username",
   "Введите пороль": "Enter password",
   "Форма авторизации": "Authorization form",
-  "Выйти": "Logout"
+  "Выйти": "Log out"
 }
