@@ -44,6 +44,7 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
         "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
         "react/display-name": "off",
-        "@typescript-eslint/no-dynamic-delete": "warn"
+        "@typescript-eslint/no-dynamic-delete": "warn",
+        "@typescript-eslint/unbound-method": "warn"
     }
 }
