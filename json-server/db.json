@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Aidar",
+    "lastname": "Akhmetgaliev",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Kazan",
+    "username": "admin",
+    "avatar": "https://cdn-icons-png.flaticon.com/512/2206/2206368.png"
+  }
 }

@@ -4,6 +4,9 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 
 const meta = {
   title: 'features/LoginForm',
+  args: {
+    onSuccess: undefined
+  },
   component: LoginForm
 } satisfies Meta<typeof LoginForm>
 

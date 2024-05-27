@@ -1,0 +1,25 @@
+.items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: calc(var(--sidebar-width) / 3);
+  gap: 15px;
+  transition: all 0.3s;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--inverted-secondary-color);
+  margin-right: 6px;
+}
+
+.collapsed {
+  .items {
+    margin-left: 0;
+    align-items: center;
+  }
+}
