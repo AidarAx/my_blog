@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-webpack5'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
-import { DefinePlugin, RuleSetRule } from 'webpack'
+import { DefinePlugin } from 'webpack'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
 const config: StorybookConfig = {
@@ -34,6 +34,15 @@ const config: StorybookConfig = {
     autodocs: 'tag'
   },
   webpackFinal: async (config) => {
+    if (config.plugins) {
+      config.plugins.push(
+        new DefinePlugin({
+          __IS_DEV__: JSON.stringify(true),
+          __API__: JSON.stringify('')
+        })
+      )
+    }
+
     if (config.resolve) {
       config.resolve.plugins = [
         ...(config.resolve.plugins ?? []),
@@ -43,29 +52,22 @@ const config: StorybookConfig = {
       ]
     }
 
-    if (config.plugins) {
-      config.plugins.push(
-        new DefinePlugin({
-          __IS_DEV__: true,
-          __API__: ''
-        })
-      )
-    }
+    config.module!.rules!.push(buildCssLoader(true))
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    config.module.rules.push(buildCssLoader(true))
+    const fileLoaderRule = config.module!.rules!.find(rule => {
+      const test = (rule as { test: RegExp }).test
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    const fileLoaderRule: RuleSetRule = config.module.rules.find(rule => rule.test?.test('.svg'))
+      if (!test) {
+        return false
+      }
+
+      return test.test('.svg')
+    }) as Record<string, any>
+
     fileLoaderRule.exclude = /\.svg$/
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    config.module.rules.push({
+    config.module!.rules!.push({
       test: /\.svg$/,
-      enforce: 'pre',
       loader: require.resolve('@svgr/webpack')
     })
 
