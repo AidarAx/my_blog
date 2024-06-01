@@ -2,9 +2,9 @@ import { combineReducers, Reducer, ReducersMapObject, UnknownAction } from '@red
 import { ReducerManager, StateSchema, StateSchemaKey } from './StateSchema'
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
-  const reducers = { ...initialReducers }
+  const reducers: ReducersMapObject<StateSchema> = { ...initialReducers }
 
-  let combinedReducer = combineReducers(reducers)
+  let combinedReducer: Reducer = combineReducers(reducers)
 
   let keysToRemove: StateSchemaKey[] = []
 
@@ -21,7 +21,6 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
         keysToRemove = []
       }
 
-      // @ts-expect-error: Don't know
       return combinedReducer(state, action)
     },
 

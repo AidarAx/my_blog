@@ -46,7 +46,8 @@ const config: StorybookConfig = {
     if (config.plugins) {
       config.plugins.push(
         new DefinePlugin({
-          __IS_DEV__: true
+          __IS_DEV__: true,
+          __API__: ''
         })
       )
     }

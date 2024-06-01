@@ -45,6 +45,7 @@ module.exports = {
         "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
         "react/display-name": "off",
         "@typescript-eslint/no-dynamic-delete": "warn",
-        "@typescript-eslint/unbound-method": "warn"
+        "@typescript-eslint/unbound-method": "warn",
+        "@typescript-eslint/no-invalid-void-type": "warn"
     }
 }
