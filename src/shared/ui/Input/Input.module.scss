@@ -3,7 +3,12 @@
 }
 
 .placeholder {
+  display: flex;
   margin-right: 5px;
+
+  span {
+    margin-top: 1px;
+  }
 }
 
 .input {
@@ -32,6 +37,10 @@
   bottom: 0;
   left: 0;
   animation: blink 0.7s forwards infinite;
+}
+
+.readonly {
+  opacity: .7;
 }
 
 @keyframes blink {

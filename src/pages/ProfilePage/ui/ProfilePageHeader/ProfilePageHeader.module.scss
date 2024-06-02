@@ -1,0 +1,11 @@
+.profilePageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .editBtn {
+    display: flex;
+    gap: 20px;
+  }
+}
