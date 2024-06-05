@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginPassword } from './getLoginPassword'
 
 describe('getLoginPassword', () => {
-  test('Should return value', () => {
+  test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       loginForm: {
         error: 'error',

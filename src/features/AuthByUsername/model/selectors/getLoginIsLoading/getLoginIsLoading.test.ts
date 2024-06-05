@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginIsLoading } from './getLoginIsLoading'
 
 describe('getLoginIsLoading', () => {
-  test('Should return true', () => {
+  test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       loginForm: {
         error: 'error',

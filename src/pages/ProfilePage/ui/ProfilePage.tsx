@@ -6,14 +6,20 @@ import { useSelector } from 'react-redux'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
   fetchProfileData,
-  getProfileError, getProfileForm,
-  getProfileIsLoading, getProfileReadonly, profileActions,
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileReadonly,
+  getValidateProfileErrors,
+  profileActions,
   ProfileCard,
   profileReducers
 } from 'entities/Profile'
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { ValidateProfileError } from 'entities/Profile/model/types/profile'
 
 const reducers: ReducersList = {
   profile: profileReducers
@@ -27,9 +33,19 @@ const ProfilePage = memo(() => {
   const error = useSelector(getProfileError)
   const isLoading = useSelector(getProfileIsLoading)
   const readonly = useSelector(getProfileReadonly)
+  const validateErrors = useSelector(getValidateProfileErrors)
+
+  const validateErrorsTranslation = {
+    [ValidateProfileError.SERVER_ERROR]: t('Сереверная ошибка при сохранение'),
+    [ValidateProfileError.INCORRECT_USER_AGE]: t('Некорректный возрост'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны')
+  }
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData())
+    }
   }, [dispatch])
 
   const onChangeFirstname = useCallback((value?: string) => {
@@ -39,9 +55,15 @@ const ProfilePage = memo(() => {
   const onChangeLastname = useCallback((value?: string) => {
     dispatch(profileActions.updateData({ lastname: value || '' }))
   }, [dispatch])
-
+  // ^\d+$
   const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateData({ age: Number(value || '') }))
+    if (value !== '' && value !== undefined) {
+      if (/^\d+$/.test(value)) {
+        dispatch(profileActions.updateData({ age: Number(value) }))
+      }
+    } else {
+      dispatch(profileActions.updateData({ age: 0 }))
+    }
   }, [dispatch])
 
   const onChangeCity = useCallback((value?: string) => {
@@ -68,6 +90,9 @@ const ProfilePage = memo(() => {
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames('', {}, [])}>
         <ProfilePageHeader/>
+        {validateErrors?.length && validateErrors.map(error => (
+          <Text theme={TextTheme.ERROR} text={validateErrorsTranslation[error]} key={error}/>
+        ))}
         <ProfileCard
           readonly={readonly}
           data={formData}

@@ -7,7 +7,8 @@ import { $api } from 'shared/api/api'
 import type { To } from '@remix-run/router'
 import type { NavigateOptions } from 'react-router/dist/lib/context'
 
-export function createReduxStore(initialState?: StateSchema,
+export function createReduxStore(
+  initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
   navigate?: (to: To, options?: NavigateOptions) => void
 ) {

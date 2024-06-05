@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginError } from './getLoginError'
 
 describe('getLoginError', () => {
-  test('Should return error', () => {
+  test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       loginForm: {
         error: 'error',
