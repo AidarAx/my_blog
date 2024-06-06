@@ -19,14 +19,14 @@ export const Light: Story = {
 export const authNavbar: Story = {
   args: {},
   decorators: [
-    StoreDecorator({ user: { authData: { id: '1', username: 'admin' } } })
+    StoreDecorator({ user: { authData: { id: '1', username: 'admin' }, _inited: true } })
   ]
 }
 
 export const authNavbarDark: Story = {
   args: {},
   decorators: [
-    StoreDecorator({ user: { authData: { id: '1', username: 'admin' } } }),
+    StoreDecorator({ user: { authData: { id: '1', username: 'admin' }, _inited: true } }),
     ThemeDecorator(Theme.DARK)
   ]
 }
