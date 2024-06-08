@@ -10,7 +10,6 @@ import 'shared/config/i18n/i18n'
 
 import 'app/styles/index.scss'
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
