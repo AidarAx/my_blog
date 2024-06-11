@@ -13,3 +13,18 @@
 .skeleton {
   margin-top: 15px;
 }
+
+.avatarWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.articleInfo {
+  display: flex;
+  gap: 10px;
+}
+
+.block {
+  margin: 20px;
+}

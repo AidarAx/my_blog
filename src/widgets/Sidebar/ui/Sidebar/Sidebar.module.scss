@@ -26,7 +26,7 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  margin-left: calc(var(--sidebar-width) / 3);
+  align-items: center;
   gap: 15px;
   transition: all 0.3s;
 }

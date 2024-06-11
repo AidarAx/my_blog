@@ -3,10 +3,12 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { loginReducers } from 'features/AuthByUsername/model/slice/loginSlice'
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { profileReducers } from 'entities/Profile'
+import { articleDetailsReducers } from 'entities/Article/model/slice/articleDetailsSlice'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducers,
-  profile: profileReducers
+  profile: profileReducers,
+  articleDetails: articleDetailsReducers
 }
 
 export const StoreDecorator = (
