@@ -81,7 +81,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           value={data?.firstname}
           onChange={onChangeFirstname}
           readonly={readonly}
-          placeholder={'Имя'}
+          placeholder={t('Имя')}
           className={cls.input}
         />
 
@@ -89,7 +89,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           value={data?.lastname}
           onChange={onChangeLastname}
           readonly={readonly}
-          placeholder={'Фамилия'}
+          placeholder={t('Фамилия')}
           className={cls.input}
         />
 
@@ -97,7 +97,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           value={data?.age}
           onChange={onChangeAge}
           readonly={readonly}
-          placeholder={'Возрост'}
+          placeholder={t('Возрост')}
           className={cls.input}
         />
 
@@ -105,7 +105,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           value={data?.city}
           onChange={onChangeCity}
           readonly={readonly}
-          placeholder={'Город'}
+          placeholder={t('Город')}
           className={cls.input}
         />
 
@@ -113,7 +113,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           value={data?.username}
           onChange={onChangeUsername}
           readonly={readonly}
-          placeholder={'Имя пользователя'}
+          placeholder={t('Имя пользователя')}
           className={cls.input}
         />
 
@@ -121,7 +121,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           value={data?.avatar}
           onChange={onChangeAvatar}
           readonly={readonly}
-          placeholder={'Аватар'}
+          placeholder={t('Аватар')}
           className={cls.input}
         />
 

@@ -1,2 +1,2 @@
-npm run eslint:ts
-npm run stylelint:scss
+npm run lint:ts
+npm run lint:scss

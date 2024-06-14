@@ -1,1 +1,16 @@
-{}
+{
+  "Профиль": "Profile",
+  "Редактировать": "Edit",
+  "Имя": "Firstname",
+  "Фамилия": "Lastname",
+  "Возрост": "Age",
+  "Город": "City",
+  "Имя пользователя": "Username",
+  "Аватар": "Avatar",
+  "Валюта": "Currency",
+  "Произошла ошибка при загрузки страницы": "An error occurred while loading the page",
+  "Попроубуйте обновить страницу": "Try refreshing the page",
+  "Отменить": "Cancel",
+  "Сохранить": "Save"
+}
+
