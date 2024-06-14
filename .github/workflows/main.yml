@@ -82,10 +82,10 @@ jobs:
             ${{ runner.os }}-build-
 
       - name: Linting typescript
-        run: npm run eslint:ts
+        run: npm run lint:ts
 
       - name: Linting css
-        run: npm run stylelint:scss
+        run: npm run lint:scss
 
 
 
