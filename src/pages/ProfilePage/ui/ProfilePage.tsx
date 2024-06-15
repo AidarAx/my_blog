@@ -20,6 +20,7 @@ import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { ValidateProfileError } from 'entities/Profile/model/types/profile'
+import { useParams } from 'react-router-dom'
 
 const reducers: ReducersList = {
   profile: profileReducers
@@ -34,6 +35,7 @@ const ProfilePage = memo(() => {
   const isLoading = useSelector(getProfileIsLoading)
   const readonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getValidateProfileErrors)
+  const { id } = useParams<{ id: string }>()
 
   const validateErrorsTranslation = {
     [ValidateProfileError.SERVER_ERROR]: t('Сереверная ошибка при сохранение'),
@@ -44,7 +46,7 @@ const ProfilePage = memo(() => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData())
+      dispatch(fetchProfileData(id))
     }
   }, [dispatch])
 

@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react'
+import { FC, memo, useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleDetails } from 'entities/Article'
 import * as cls from './ArticleDetailsPage.module.scss'
@@ -17,6 +17,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {
   fetchCommentsByArticleId
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { AddCommentForm } from 'features/AddCommentForm'
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -33,6 +35,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading)
   const error = useSelector(getArticleDetailsCommentsError)
   const dispatch = useAppDispatch()
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text))
+  }, [dispatch])
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -53,6 +59,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <div className={classNames(cls.articleDetailsPage, {}, [])}>
         <ArticleDetails id={id}/>
         <Text className={cls.commentTitle} title={t('Коментарии')}/>
+        <AddCommentForm onSendComment={onSendComment} className={cls.commentForm}/>
         <CommentList
           isLoading={isLoading}
           comments={comments}

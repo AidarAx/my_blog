@@ -6,7 +6,7 @@ import { Country } from 'entities/Country'
 import avatar from 'shared/assets/tests/AvatarImg.png'
 
 const meta = {
-  title: 'features/ProfileCard',
+  title: 'entities/ProfileCard',
   component: ProfileCard
 } satisfies Meta<typeof ProfileCard>
 
