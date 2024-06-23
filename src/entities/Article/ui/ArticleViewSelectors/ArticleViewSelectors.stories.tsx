@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleViewSelectors } from './ArticleViewSelectors'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import { ArticleView } from 'entities/Article'
 
 const meta = {
-  title: '.../ArticleViewSelectors',
+  title: 'entities/ArticleViewSelectors',
   component: ArticleViewSelectors
 } satisfies Meta<typeof ArticleViewSelectors>
 
@@ -12,11 +13,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  args: {}
+  args: {
+    view: ArticleView.SMALL
+  }
 }
 
 export const Dark: Story = {
-  args: {},
+  args: {
+    view: ArticleView.BIG
+  },
   decorators: [
     ThemeDecorator(Theme.DARK)
   ]

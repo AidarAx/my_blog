@@ -6,12 +6,6 @@ import { RequireAuth } from 'app/providers/router/ui/RequireAuth'
 
 export const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-    const element = (
-      <div className='page-wrapper'>
-        {route.element}
-      </div>
-    )
-
     return (
       <Route
         key={route.path}
@@ -19,9 +13,9 @@ export const AppRouter = () => {
         element={
           route.authOnly
             ? (<RequireAuth>
-                {element}
+                {route.element}
               </RequireAuth>)
-            : element
+            : route.element
         }/>
     )
   }, [])
