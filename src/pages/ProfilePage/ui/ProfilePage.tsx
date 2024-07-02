@@ -21,7 +21,7 @@ import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { ValidateProfileError } from 'entities/Profile/model/types/profile'
 import { useParams } from 'react-router-dom'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page'
 
 const reducers: ReducersList = {
   profile: profileReducers
