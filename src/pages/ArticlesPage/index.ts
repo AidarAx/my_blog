@@ -1,6 +1,6 @@
 export {
   ArticlesPageAsync as ArticlesPage
-} from './ui/ArticlesPage.async'
+} from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.async'
 
 export type {
   ArticlePageSchema

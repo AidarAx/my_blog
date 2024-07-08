@@ -47,6 +47,6 @@ module.exports = {
         "@typescript-eslint/no-dynamic-delete": "warn",
         "@typescript-eslint/unbound-method": "warn",
         "@typescript-eslint/no-invalid-void-type": "warn",
-        "@typescript-eslint/no-non-null-assertion": "warn"
+        "@typescript-eslint/no-non-null-assertion": "warn",
     }
 }
