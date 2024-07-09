@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import * as cls from './ArticleList.module.scss'
 import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
-import { memo } from 'react'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 
 interface ArticleListProps {
@@ -11,6 +10,7 @@ interface ArticleListProps {
   articles: Article[]
   isLoading?: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -27,9 +27,9 @@ export const ArticleList = memo(
       className,
       articles,
       view = ArticleView.SMALL,
-      isLoading
+      isLoading,
+      target
     } = props
-    const { t } = useTranslation()
 
     const renderArticles = (article: Article) => (
       <ArticleListItem
@@ -37,6 +37,7 @@ export const ArticleList = memo(
         article={article}
         view={view}
         key={article.id}
+        target={target}
       />
     )
 

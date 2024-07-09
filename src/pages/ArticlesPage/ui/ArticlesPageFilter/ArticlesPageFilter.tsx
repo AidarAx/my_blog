@@ -19,7 +19,6 @@ import { ArticleSortSelector } from 'features/ArticleSortSelector'
 import { SortOrder } from 'shared/types/sortOrder'
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList'
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs'
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs'
 
 interface ArticlesPageFilterProps {

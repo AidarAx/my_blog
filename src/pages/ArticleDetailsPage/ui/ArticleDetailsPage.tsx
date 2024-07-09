@@ -1,37 +1,50 @@
 import { FC, memo, useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { ArticleDetails } from 'entities/Article'
+import { ArticleDetails, ArticleList } from 'entities/Article'
 import * as cls from './ArticleDetailsPage.module.scss'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import { CommentList } from 'entities/Comment'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsCommentsReducers, getArticleComments } from '../model/slice/articleDetailsCommentsSlice'
 import { useSelector } from 'react-redux'
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../model/selectors/selectors'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import {
-  fetchCommentsByArticleId
-} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/AddCommentForm'
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/RouteConfig/routeConfig'
 import { Page } from 'widgets/Page'
+import {
+  articleDetailsPageRecommendationsReducers,
+  getArticleRecommendations
+} from '../model/slice/articleDetailsPageRecommendationsSlice'
+import {
+  getArticleDetailsRecommendationsError,
+  getArticleDetailsRecommendationsIsLoading
+} from '../model/selectors/recommendations'
+import {
+  fetchArticleRecommendations
+} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 
 interface ArticleDetailsPageProps {
   className?: string
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducers
+  articleDetailsComments: articleDetailsCommentsReducers,
+  articleDetailsRecommendations: articleDetailsPageRecommendationsReducers
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation('article-details')
   const { id } = useParams<{ id: string }>()
   const comments = useSelector(getArticleComments.selectAll)
+  const recommendations = useSelector(getArticleRecommendations.selectAll)
+  const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
+  const recommendationsError = useSelector(getArticleDetailsRecommendationsError)
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading)
   const error = useSelector(getArticleDetailsCommentsError)
   const dispatch = useAppDispatch()
@@ -44,6 +57,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchCommentsByArticleId(id))
+      dispatch(fetchArticleRecommendations())
     }
   }, [])
 
@@ -66,7 +80,22 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
           {t('Назад к списку')}
         </Button>
         <ArticleDetails id={id}/>
-        <Text className={cls.commentTitle} title={t('Коментарии')}/>
+        <Text
+          size={TextSize.LARGE}
+          className={cls.commentTitle}
+          title={t('Рекомендуем')}
+        />
+        <ArticleList
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={cls.recommendations}
+          target={'_blank'}
+        />
+        <Text
+          size={TextSize.LARGE}
+          className={cls.commentTitle}
+          title={t('Коментарии')}/
+        >
         <AddCommentForm onSendComment={onSendComment} className={cls.commentForm}/>
         <CommentList
           isLoading={isLoading}

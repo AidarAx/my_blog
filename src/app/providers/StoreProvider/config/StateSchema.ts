@@ -5,7 +5,7 @@ import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@redux
 import { ProfileSchema } from 'entities/Profile'
 import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema } from 'entities/Article'
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import { ArticleDetailsCommentsSchema, ArticleDetailsPageRecommendationsSchema } from 'pages/ArticleDetailsPage'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlesPage'
 import { ScrollRestorationSchema } from 'features/ScrollRestoration'
@@ -20,6 +20,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
+  articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema
   addCommentForm?: AddCommentFormSchema
   articlePage?: ArticlePageSchema
 }

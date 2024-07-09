@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider'
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema'
@@ -8,14 +8,13 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer
 }
 
-type ReducersListEntry = [StateSchemaKey, Reducer]
-
 interface DynamicModuleLoaderProps {
   reducers: ReducersList
   removeAfterUnmount?: boolean
+  children: ReactNode
 }
 
-export const DynamicModuleLoader: FC<PropsWithChildren & DynamicModuleLoaderProps> = (props) => {
+export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
   const {
     children,
     reducers,
