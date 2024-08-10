@@ -1,7 +1,4 @@
-import React, { FC, memo, useCallback, useEffect } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import * as cls from './ArticlesPage.module.scss'
-import { ArticleList } from 'entities/Article'
+import React, { FC, memo, useCallback } from 'react'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articlePageReducers, getArticles } from '../../model/slice/articlePageSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
@@ -16,6 +13,8 @@ import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticlesPageFilter } from 'pages/ArticlesPage/ui/ArticlesPageFilter/ArticlesPageFilter'
 import { useSearchParams } from 'react-router-dom'
+import { ArticlesPageVirtualList } from 'pages/ArticlesPage/ui/ArticlesPageVirtualList/ArticlesPageVirtualList'
+import { useEffectOnce } from 'shared/lib/hooks/useEffectOnce/useEffectOnce'
 
 interface ArticlesPageProps {
   className?: string
@@ -37,24 +36,18 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     dispatch(fetchNextArticlePage())
   }, [dispatch])
 
-  useEffect(() => {
+  useEffectOnce(() => {
     dispatch(initArticlesPage(searchParams))
-  }, [])
+  })
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        onScrollEnd={onLoadNextPart}
-        className={classNames(cls.articlesPage, {}, [className])}
-      >
-        <ArticlesPageFilter/>
-        <ArticleList
-          isLoading={isLoading}
-          view={view}
-          articles={articles}
-          className={cls.list}
-        />
-      </Page>
+      <ArticlesPageVirtualList
+        isLoading={isLoading}
+        onLoadNextPart={onLoadNextPart}
+        articles={articles}
+        view={view}
+      />
     </DynamicModuleLoader>
   )
 }

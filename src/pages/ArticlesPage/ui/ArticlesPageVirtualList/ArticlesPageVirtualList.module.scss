@@ -1,0 +1,32 @@
+.ArticlesPageVirtualList {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+
+.BIG {
+  .card {
+    margin-bottom: 30px;
+  }
+}
+
+.skeletons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 30px;
+}
+
+.filters {
+  margin-bottom: 30px;
+}
+
+.itemsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 30px;
+}
