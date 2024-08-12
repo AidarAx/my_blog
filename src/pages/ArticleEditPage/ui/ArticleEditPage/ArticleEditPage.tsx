@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 import * as cls from './ArticleEditPage.module.scss'
 import { memo } from 'react'
 import { Page } from 'widgets/Page'

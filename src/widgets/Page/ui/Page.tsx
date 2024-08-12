@@ -1,8 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, useInfiniteScroll, useAppDispatch, useThrottle } from 'shared/lib'
 import * as cls from './Page.module.scss'
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react'
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {
   getScrollRestorationByPath,
   scrollRestorationActions
@@ -10,7 +8,6 @@ import {
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
 
 interface PageProps {
   className?: string

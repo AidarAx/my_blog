@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Select, SelectOptions } from 'shared/ui/Select/Select'
+import { classNames } from 'shared/lib'
+import { Select, SelectOptions } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { memo, useMemo } from 'react'
 import { ArticleSortField } from 'entities/Article'

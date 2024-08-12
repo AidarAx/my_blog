@@ -2,7 +2,7 @@ import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema } from './StateSchema'
 import { counterReducers } from 'entities/Counter'
 import { userReducers } from 'entities/User'
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager'
+import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
 import { scrollRestorationReducers } from 'features/ScrollRestoration'
 

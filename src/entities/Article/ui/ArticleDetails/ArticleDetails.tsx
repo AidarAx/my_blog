@@ -1,27 +1,20 @@
 import { memo, ReactNode, useCallback, useEffect } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib'
 import * as cls from './ArticleDetails.module.scss'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsReducers } from '../../model/slice/articleDetailsSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading
-} from '../../model/selectors/articleDetails'
-import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Icon } from 'shared/ui/Icon/Icon'
+import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
+import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
+import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'
+import { Text, TextAlign, TextSize, TextTheme, Skeleton, Avatar, Icon } from 'shared/ui'
 import EyeIcon from 'shared/assets/icons/eyeIcon.svg'
 import CalendarIcon from 'shared/assets/icons/calendar.svg'
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article'
-import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent'
-import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent'
-import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducers

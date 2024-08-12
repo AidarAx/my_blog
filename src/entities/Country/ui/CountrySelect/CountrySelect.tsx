@@ -1,8 +1,8 @@
 import React, { memo, useCallback } from 'react'
 import { Country } from '../../model/types/country'
-import { Select } from 'shared/ui/Select/Select'
+import { Select } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 
 interface CountrySelectProps {
   className?: string

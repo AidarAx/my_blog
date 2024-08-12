@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useEffect } from 'react'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { useAppDispatch, classNames, DynamicModuleLoader, ReducersList } from 'shared/lib'
 import { useSelector } from 'react-redux'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
   fetchProfileData,
   getProfileError,
@@ -14,12 +12,12 @@ import {
   profileActions,
   ProfileCard,
   profileReducers
+  , ValidateProfileError
 } from 'entities/Profile'
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader'
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { ValidateProfileError } from 'entities/Profile/model/types/profile'
+import { Text, TextTheme } from 'shared/ui'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page'
 

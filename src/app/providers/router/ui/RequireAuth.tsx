@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from 'entities/User'
 import { useLocation, Navigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/RouteConfig/routeConfig'
+import { RoutePath } from 'shared/config'
 import { ReactNode } from 'react'
 
 export const RequireAuth = ({ children }: { children: ReactNode }) => {

@@ -1,20 +1,16 @@
 import React, { FC, memo, useCallback } from 'react'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, ReducersList, useAppDispatch, useEffectOnce } from 'shared/lib'
 import { articlePageReducers, getArticles } from '../../model/slice/articlePageSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import {
   getArticlePageError,
   getArticlePageIsLoading,
   getArticlePageView
 } from '../../model/selectors/articlePageSelectors'
-import { Page } from 'widgets/Page'
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
-import { ArticlesPageFilter } from 'pages/ArticlesPage/ui/ArticlesPageFilter/ArticlesPageFilter'
 import { useSearchParams } from 'react-router-dom'
-import { ArticlesPageVirtualList } from 'pages/ArticlesPage/ui/ArticlesPageVirtualList/ArticlesPageVirtualList'
-import { useEffectOnce } from 'shared/lib/hooks/useEffectOnce/useEffectOnce'
+import { ArticlesPageVirtualList } from '../ArticlesPageVirtualList/ArticlesPageVirtualList'
 
 interface ArticlesPageProps {
   className?: string

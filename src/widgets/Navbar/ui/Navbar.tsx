@@ -1,14 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 import * as cls from './Navbar.module.scss'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme, Text, TextTheme, AppLink, AppLinkTheme, HStack } from 'shared/ui'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { RoutePath } from 'shared/config/RouteConfig/routeConfig'
+import { RoutePath } from 'shared/config'
 
 interface NavbarProps {
   className?: string
@@ -34,13 +32,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-        <div className={classNames(cls.navbar, {}, [className])}>
+        <HStack align={'center'} justify={'between'} className={classNames(cls.navbar, {}, [className])}>
           <Text
             theme={TextTheme.INVERTED}
             title={'Blog'}
             className={cls.appName}
           />
-          <div className={cls.navbarBtns}>
+          <HStack gap={'16'}>
             <AppLink
               to={RoutePath.article_create}
               theme={AppLinkTheme.SECONDARY}
@@ -50,13 +48,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED} className={cls.authBtn}>
               {t('Выйти')}
             </Button>
-          </div>
-        </div>
+          </HStack>
+        </HStack>
     )
   }
 
   return (
-      <div className={classNames(cls.navbar, {}, [className])}>
+      <HStack align={'center'} justify={'between'} className={classNames(cls.navbar, {}, [className])}>
         <Button onClick={onShowModal} theme={ButtonTheme.CLEAR_INVERTED} className={cls.authBtn}>
           {t('Войти')}
         </Button>
@@ -66,7 +64,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             onClose={onCloseModal}
           />
         )}
-      </div>
+      </HStack>
   )
 }
 )

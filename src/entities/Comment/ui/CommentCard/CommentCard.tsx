@@ -1,11 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 import * as cls from './CommentCard.module.scss'
 import { Comment } from '../../model/types/comment'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Text } from 'shared/ui/Text/Text'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
-import { RoutePath } from 'shared/config/RouteConfig/routeConfig'
+import { Avatar, Skeleton, AppLink, Text } from 'shared/ui'
+import { RoutePath } from 'shared/config'
 
 interface CommentCardProps {
   className?: string

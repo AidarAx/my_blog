@@ -1,16 +1,14 @@
 import { FC, memo, useCallback, useEffect } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib'
 import { ArticleDetails, ArticleList } from 'entities/Article'
 import * as cls from './ArticleDetailsPage.module.scss'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Text, TextSize } from 'shared/ui/Text/Text'
+import { Text, TextSize } from 'shared/ui'
 import { CommentList } from 'entities/Comment'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsCommentsReducers, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice'
 import { useSelector } from 'react-redux'
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../../model/selectors/selectors'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/AddCommentForm'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
@@ -26,7 +24,7 @@ import {
 import {
   fetchArticleRecommendations
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
   className?: string

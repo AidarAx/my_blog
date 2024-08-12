@@ -1,10 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 import * as cls from './ArticlesPageVirtualList.module.scss'
 import { ItemContent, Virtuoso, VirtuosoGrid, VirtuosoProps } from 'react-virtuoso'
-import { Article, ArticleView } from 'entities/Article'
-import { ArticlesPageFilter } from 'pages/ArticlesPage/ui/ArticlesPageFilter/ArticlesPageFilter'
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem'
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton'
+import { Article, ArticleView, ArticleListItem, ArticleListItemSkeleton } from 'entities/Article'
+import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter'
 
 interface ArticlesPageVirtualListProps {
   className?: string
