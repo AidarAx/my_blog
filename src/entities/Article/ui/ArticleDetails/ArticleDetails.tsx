@@ -98,7 +98,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <div className={cls.avatarWrapper}>
           <Avatar className={cls.avatar} src={data?.img} size={200}/>
         </div>
-        <Text className={cls.title} size={TextSize.LARGE} title={data?.title} text={data?.subtitle}/>
+        <Text className={cls.title} size={TextSize.L} title={data?.title} text={data?.subtitle}/>
         <div className={cls.articleInfo}>
           <Icon Svg={EyeIcon}/>
           <Text text={String(data?.views)}/>

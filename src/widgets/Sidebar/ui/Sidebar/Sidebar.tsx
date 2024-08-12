@@ -4,10 +4,10 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { LangSwitcher } from 'features/LangSwitcher'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { SidebarItem } from './SidebarItem/SidebarItem'
-
 import * as cls from './Sidebar.module.scss'
 import { useSelector } from 'react-redux'
 import { getSidebarItemList } from '../../model/selectors/sidebarItemList'
+import { VStack } from 'shared/ui/Stack'
 
 interface SidebarProps {
   className?: string
@@ -34,7 +34,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 square>
           { collapsed ? '>' : '<' }
         </Button>
-        <div className={cls.items}>
+        <VStack gap={'16'} className={cls.items}>
           {sidebarItemList.map(item => (
             <SidebarItem
               item={item}
@@ -42,7 +42,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               key={item.path}
             />
           ))}
-        </div>
+        </VStack>
         <div className={cls.switchers}>
           <ThemeSwitcher/>
           <LangSwitcher short={collapsed}/>

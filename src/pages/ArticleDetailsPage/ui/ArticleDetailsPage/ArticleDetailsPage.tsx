@@ -73,7 +73,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         <ArticleDetailsPageHeader/>
         <ArticleDetails id={id}/>
         <Text
-          size={TextSize.LARGE}
+          size={TextSize.L}
           className={cls.commentTitle}
           title={t('Рекомендуем')}
         />
@@ -84,7 +84,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
           target={'_blank'}
         />
         <Text
-          size={TextSize.LARGE}
+          size={TextSize.L}
           className={cls.commentTitle}
           title={t('Коментарии')}/
         >

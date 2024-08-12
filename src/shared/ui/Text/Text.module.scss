@@ -38,7 +38,17 @@
   text-align: center;
 }
 
-.default_size {
+.size_s {
+  .title {
+    font: var(--font-m);
+  }
+
+  .text {
+    font: var(--font-s);
+  }
+}
+
+.size_m {
   .title {
     font: var(--font-l);
   }
@@ -48,7 +58,7 @@
   }
 }
 
-.large_size {
+.size_l {
   .title {
     font: var(--font-xl);
   }
