@@ -4,6 +4,10 @@
 @import 'themes/dark';
 @import "themes/pink";
 
+li {
+  list-style-type: none;
+}
+
 body {
   font: var(--font-m);
 }

@@ -1,0 +1,37 @@
+.ListBox {
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  background-color: var(--listbox-bg);
+  z-index: 1000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  width: 200px;
+}
+
+.item {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.item[data-focus] {
+  background-color: var(--inverted-bg-color);
+}
+
+.item[data-disabled] {
+  opacity: 0.4;
+}
+
+.selected {
+  color: red;
+}
+
+.optionsTop {
+  bottom: 100%;
+}
+
+.optionsBottom {
+  top: 100%
+}
