@@ -1,12 +1,13 @@
 import { classNames } from 'shared/lib'
 import * as cls from './Navbar.module.scss'
-import { Button, ButtonTheme, Text, TextTheme, AppLink, AppLinkTheme, HStack } from 'shared/ui'
+import { Button, ButtonTheme, Text, TextTheme, AppLink, AppLinkTheme, HStack, Avatar } from 'shared/ui'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
 import { RoutePath } from 'shared/config'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
 
 interface NavbarProps {
   className?: string
@@ -38,16 +39,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             title={'Blog'}
             className={cls.appName}
           />
-          <HStack gap={'16'}>
+          <HStack gap={'32'} align={'center'}>
             <AppLink
               to={RoutePath.article_create}
               theme={AppLinkTheme.SECONDARY}
             >
               {t('Создать статью')}
             </AppLink>
-            <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED} className={cls.authBtn}>
-              {t('Выйти')}
-            </Button>
+            <Dropdown
+              direction={'bottom-left'}
+              items={[
+                {
+                  content: t('Профиль'),
+                  href: RoutePath.profile + authData.id
+                },
+                {
+                  content: t('Выйти'),
+                  onClick: onLogout
+                }
+              ]}
+              trigger={<Avatar size={30} src={authData.avatar} alt={'avatar'}/>}
+            />
           </HStack>
         </HStack>
     )

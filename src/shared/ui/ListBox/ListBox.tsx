@@ -1,10 +1,9 @@
 import { Field, Label, Listbox as HListBox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
-import { Fragment, ReactNode } from 'react'
+import { Fragment, memo, ReactNode } from 'react'
 import * as cls from './ListBox.module.scss'
 import { Button, ButtonTheme } from '../Button/Button'
-import { classNames } from 'shared/lib'
-
-type DropdownDirection = 'top' | 'bottom'
+import { classNames } from '../../lib'
+import { DropdownDirection } from '../../types'
 
 export interface ListBoxItem {
   value: string
@@ -24,11 +23,13 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-  top: cls.optionsTop,
-  bottom: cls.optionsBottom
+  'top-left': cls.optionsTopLeft,
+  'top-right': cls.optionsTopRight,
+  'bottom-left': cls.optionsBottomLeft,
+  'bottom-right': cls.optionsBottomRight
 }
 
-export const ListBox = (props: ListBoxProps) => {
+export const ListBox = memo((props: ListBoxProps) => {
   const {
     className,
     items,
@@ -37,37 +38,37 @@ export const ListBox = (props: ListBoxProps) => {
     onChange,
     readonly,
     label,
-    direction = 'bottom'
+    direction = 'bottom-left'
   } = props
 
   return (
-   <Field className={className}>
-     {label && <Label>{label}</Label>}
-     <HListBox
-       disabled={readonly}
-       as={'div'}
-       className={cls.ListBox}
-       value={value}
-       onChange={onChange}
-     >
-       <ListboxButton as={Fragment}>
-         <Button theme={ButtonTheme.OUTLINE}>
-           {value ?? defaultValue}
-         </Button>
-       </ListboxButton>
-       <ListboxOptions className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
-         {items?.map((item) => (
-           <ListboxOption
-             key={item.value}
-             value={item.value}
-             disabled={item.disabled}
-             className={cls.item}
-           >
-             {item.content}
-           </ListboxOption>
-         ))}
-       </ListboxOptions>
-     </HListBox>
-   </Field>
+    <Field className={className}>
+      {label && <Label>{label}</Label>}
+      <HListBox
+        disabled={readonly}
+        as={'div'}
+        className={cls.ListBox}
+        value={value}
+        onChange={onChange}
+      >
+        <ListboxButton as={Fragment}>
+          <Button theme={ButtonTheme.OUTLINE}>
+            {value ?? defaultValue}
+          </Button>
+        </ListboxButton>
+        <ListboxOptions className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
+          {items?.map((item) => (
+            <ListboxOption
+              key={item.value}
+              value={item.value}
+              disabled={item.disabled}
+              className={cls.item}
+            >
+              {item.content}
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </HListBox>
+    </Field>
   )
-}
+})

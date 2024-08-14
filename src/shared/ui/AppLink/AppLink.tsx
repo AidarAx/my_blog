@@ -1,4 +1,4 @@
-import { FC, memo, PropsWithChildren, ReactNode } from 'react'
+import { memo, ReactNode } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 
 import * as cls from './AppLink.module.scss'
