@@ -17,7 +17,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx chromatic --project-token=chpt_5077bfa4a2b91c2",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate:slice": "node scripts/createSlice/index.js"
   },
   "author": "",
   "license": "ISC",
