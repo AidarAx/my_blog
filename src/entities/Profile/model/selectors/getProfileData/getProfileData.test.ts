@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider'
-import { getProfileData } from './getProfileData'
-import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
+import { getProfileData } from './getProfileData'
 
 describe('getProfileData', () => {
   test('Should work with filled state', () => {

@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback } from 'react'
-import { DynamicModuleLoader, ReducersList, useAppDispatch, useEffectOnce } from 'shared/lib'
-import { articlePageReducers, getArticles } from '../../model/slice/articlePageSlice'
 import { useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
+import { DynamicModuleLoader, ReducersList, useAppDispatch, useEffectOnce } from 'shared/lib'
 import {
   getArticlePageError,
   getArticlePageIsLoading,
@@ -9,7 +9,7 @@ import {
 } from '../../model/selectors/articlePageSelectors'
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
-import { useSearchParams } from 'react-router-dom'
+import { articlePageReducers, getArticles } from '../../model/slice/articlePageSlice'
 import { ArticlesPageVirtualList } from '../ArticlesPageVirtualList/ArticlesPageVirtualList'
 
 interface ArticlesPageProps {

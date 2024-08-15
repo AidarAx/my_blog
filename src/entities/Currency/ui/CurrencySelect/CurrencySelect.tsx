@@ -1,9 +1,9 @@
 import React, { memo, useCallback } from 'react'
-import { Currency } from '../../model/types/currency'
-import { ListBox } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import * as cls from './CurrencySelect.module.scss'
 import { classNames } from 'shared/lib'
+import { ListBox } from 'shared/ui'
+import { Currency } from '../../model/types/currency'
+import * as cls from './CurrencySelect.module.scss'
 
 interface CurrencySelectProps {
   className?: string

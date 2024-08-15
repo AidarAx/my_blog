@@ -1,7 +1,10 @@
-import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useEffect } from 'react'
-import { useAppDispatch, classNames, DynamicModuleLoader, ReducersList } from 'shared/lib'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { Page } from 'widgets/Page'
+import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
 import {
   fetchProfileData,
   getProfileError,
@@ -14,12 +17,9 @@ import {
   profileReducers
   , ValidateProfileError
 } from 'entities/Profile'
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
+import { useAppDispatch, classNames, DynamicModuleLoader, ReducersList } from 'shared/lib'
 import { Text, TextTheme } from 'shared/ui'
-import { useParams } from 'react-router-dom'
-import { Page } from 'widgets/Page'
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 
 const reducers: ReducersList = {
   profile: profileReducers

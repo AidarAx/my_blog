@@ -1,7 +1,7 @@
-import { profileActions, profileReducers } from './profileSlice'
-import { ProfileSchema } from '../types/profile'
-import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
+import { ProfileSchema } from '../types/profile'
+import { profileActions, profileReducers } from './profileSlice'
 
 const data = {
   firstname: 'Aidar',

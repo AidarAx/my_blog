@@ -1,8 +1,7 @@
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
-import { useTheme } from 'app/providers/ThemeProvider'
-
 import * as cls from './Modal.module.scss'
 
 interface ModalProps {

@@ -1,10 +1,9 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { memo, ReactNode } from 'react'
-import * as cls from './Dropdown.module.scss'
 import { classNames } from 'shared/lib'
-import { AppLink, Button } from 'shared/ui'
 import { DropdownDirection } from 'shared/types'
-import content from '*.svg'
+import { AppLink, Button } from 'shared/ui'
+import * as cls from './Dropdown.module.scss'
 
 export interface DropdownItems {
   disabled?: boolean

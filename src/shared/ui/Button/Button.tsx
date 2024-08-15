@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, ButtonHTMLAttributes, memo, ReactNode } from 'react'
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import * as cls from './Button.module.scss'

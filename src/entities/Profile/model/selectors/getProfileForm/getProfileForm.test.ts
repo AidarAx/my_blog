@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider'
-import { getProfileForm } from './getProfileForm'
-import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
+import { getProfileForm } from './getProfileForm'
 
 describe('getProfileForm', () => {
   test('Should work with filled state', () => {

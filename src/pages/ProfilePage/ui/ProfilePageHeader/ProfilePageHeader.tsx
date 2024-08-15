@@ -1,11 +1,11 @@
-import * as cls from './ProfilePageHeader.module.scss'
-import { classNames, useAppDispatch } from 'shared/lib'
-import { Text, Button, ButtonTheme, HStack } from 'shared/ui'
+import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile'
-import { memo, useCallback } from 'react'
 import { getUserAuthData } from 'entities/User'
+import { classNames, useAppDispatch } from 'shared/lib'
+import { Text, Button, ButtonTheme, HStack } from 'shared/ui'
+import * as cls from './ProfilePageHeader.module.scss'
 
 interface ProfilePageHeaderProps {
   className?: string

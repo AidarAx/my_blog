@@ -1,14 +1,14 @@
-import { CounterSchema } from 'entities/Counter'
-import { UserSchema } from 'entities/User'
-import { LoginSchema } from 'features/AuthByUsername'
 import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit'
-import { ProfileSchema } from 'entities/Profile'
 import { AxiosInstance } from 'axios'
-import { ArticleDetailsSchema } from 'entities/Article'
 import { ArticleDetailsCommentsSchema, ArticleDetailsPageRecommendationsSchema } from 'pages/ArticleDetailsPage'
-import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlesPage'
+import { AddCommentFormSchema } from 'features/AddCommentForm'
+import { LoginSchema } from 'features/AuthByUsername'
 import { ScrollRestorationSchema } from 'features/ScrollRestoration'
+import { ArticleDetailsSchema } from 'entities/Article'
+import { CounterSchema } from 'entities/Counter'
+import { ProfileSchema } from 'entities/Profile'
+import { UserSchema } from 'entities/User'
 
 export interface StateSchema {
   counter: CounterSchema

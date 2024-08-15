@@ -1,8 +1,7 @@
 import React, { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib'
 import { Button, ButtonTheme, VStack } from 'shared/ui'
-import { useTranslation } from 'react-i18next'
-
 import * as cls from './PageError.module.scss'
 
 interface PageErrorProps {

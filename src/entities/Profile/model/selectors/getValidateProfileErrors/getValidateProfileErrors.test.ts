@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider'
-import { getValidateProfileErrors } from './getValidateProfileErrors'
 import { ValidateProfileError } from 'entities/Profile/model/types/profile'
+import { getValidateProfileErrors } from './getValidateProfileErrors'
 
 describe('getProfileReadonly', () => {
   test('Should work with filled state', () => {

@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib'
 import { memo } from 'react'
-import { ArticleCodeBlock } from '../../model/types/article'
+import { classNames } from 'shared/lib'
 import { Code } from 'shared/ui'
+import { ArticleCodeBlock } from '../../model/types/article'
 
 interface ArticleCodeBlockComponentProps {
   className?: string
