@@ -4,20 +4,22 @@ import { ArticleDetailsCommentsSchema, ArticleDetailsPageRecommendationsSchema }
 import { ArticlePageSchema } from 'pages/ArticlesPage'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { LoginSchema } from 'features/AuthByUsername'
+import { EditableProfileCardSchema } from 'features/EditableProfileCard'
 import { ScrollRestorationSchema } from 'features/ScrollRestoration'
 import { ArticleDetailsSchema } from 'entities/Article'
 import { CounterSchema } from 'entities/Counter'
-import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
+import { rtkApi } from 'shared/api'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   scrollRestoration: ScrollRestorationSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async reducers
   loginForm?: LoginSchema
-  profile?: ProfileSchema
+  profile?: EditableProfileCardSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
   articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema

@@ -7,7 +7,7 @@ import * as cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
   className?: string
-  articles: Article[]
+  articles?: Article[]
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
@@ -42,9 +42,9 @@ export const ArticleList = memo(
     )
 
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <div className={classNames('', {}, [className, cls[view]])}>
         {
-          articles.length > 0
+          articles && articles.length > 0
             ? articles.map(renderArticles)
             : null
         }

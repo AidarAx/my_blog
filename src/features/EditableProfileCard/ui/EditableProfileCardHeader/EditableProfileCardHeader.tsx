@@ -1,17 +1,20 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile'
 import { getUserAuthData } from 'entities/User'
 import { classNames, useAppDispatch } from 'shared/lib'
 import { Text, Button, ButtonTheme, HStack } from 'shared/ui'
-import * as cls from './ProfilePageHeader.module.scss'
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
+import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice'
+import * as cls from './EditableProfileCardHeader.module.scss'
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string
 }
 
-export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = memo(({ className }: EditableProfileCardHeaderProps) => {
   const { t } = useTranslation('profile')
   const dispatch = useAppDispatch()
   const readonly = useSelector(getProfileReadonly)
@@ -21,11 +24,11 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
   const canEdit = authData?.id === profileData?.id
 
   const onEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(false))
+    dispatch(editableProfileCardActions.setReadonly(false))
   }, [dispatch])
 
   const onCancelEdit = useCallback(() => {
-    dispatch(profileActions.cancelEdit())
+    dispatch(editableProfileCardActions.cancelEdit())
   }, [dispatch])
 
   const onSave = useCallback(() => {
@@ -33,7 +36,7 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
   }, [dispatch])
 
   return (
-      <HStack justify={'between'} className={classNames(cls.profilePageHeader, {}, [className])}>
+      <HStack justify={'between'} className={classNames(cls.EditableProfileCardHeader, {}, [className])}>
         <Text title={t('Профиль')}/>
         {canEdit && (
           <div>

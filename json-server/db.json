@@ -1381,6 +1381,18 @@
       "userId": "2",
       "text": "lkdkasd",
       "id": "pjz3iYq"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdasdadads",
+      "id": "9uJVXdT"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Hello",
+      "id": "cJHBi2w"
     }
   ],
   "users": [
@@ -1408,7 +1420,7 @@
       "currency": "EUR",
       "country": "Belarus",
       "city": "Казань",
-      "username": "admin",
+      "username": "admina",
       "avatar": "https://sun9-12.userapi.com/impg/c858224/v858224715/1ad471/iiTME5-aORY.jpg?size=959x1280&quality=96&sign=d5c5ed86f430276277693b05a94eac76&type=album"
     },
     {

@@ -2,6 +2,7 @@ import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 import { scrollRestorationReducers } from 'features/ScrollRestoration'
 import { counterReducers } from 'entities/Counter'
 import { userReducers } from 'entities/User'
+import { rtkApi } from 'shared/api'
 import { $api } from 'shared/api/api'
 import { createReducerManager } from './reducerManager'
 import { StateSchema } from './StateSchema'
@@ -14,7 +15,8 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducers,
     user: userReducers,
-    scrollRestoration: scrollRestorationReducers
+    scrollRestoration: scrollRestorationReducers,
+    [rtkApi.reducerPath]: rtkApi.reducer
   }
 
   const reducerManager = createReducerManager(rootReducers)
@@ -29,7 +31,7 @@ export function createReduxStore(
           api: $api
         }
       }
-    })
+    }).concat(rtkApi.middleware)
   })
 
   // @ts-expect-error: I'll fix it later

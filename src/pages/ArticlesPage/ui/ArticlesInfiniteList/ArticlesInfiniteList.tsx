@@ -1,15 +1,16 @@
+import { useCallback } from 'react'
+import { useSelector } from 'react-redux'
 import { ItemContent, Virtuoso, VirtuosoGrid, VirtuosoProps } from 'react-virtuoso'
 import { Article, ArticleView, ArticleListItem, ArticleListItemSkeleton } from 'entities/Article'
-import { classNames } from 'shared/lib'
+import { classNames, useAppDispatch } from 'shared/lib'
+import { getArticlePageIsLoading, getArticlePageView } from '../../model/selectors/articlePageSelectors'
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage'
+import { getArticles } from '../../model/slice/articlePageSlice'
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter'
-import * as cls from './ArticlesPageVirtualList.module.scss'
+import * as cls from './ArticlesInfiniteList.module.scss'
 
-interface ArticlesPageVirtualListProps {
+interface ArticlesInfiniteListProps {
   className?: string
-  articles: Article[]
-  isLoading?: boolean
-  view?: ArticleView
-  onLoadNextPart: () => void
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -25,14 +26,16 @@ const getSkeletons = (view: ArticleView) => {
   return view === ArticleView.BIG ? skeletons : <div className={cls.skeletons}>{skeletons}</div>
 }
 
-export const ArticlesPageVirtualList = (props: ArticlesPageVirtualListProps) => {
-  const {
-    className,
-    articles,
-    isLoading,
-    view = ArticleView.BIG,
-    onLoadNextPart
-  } = props
+export const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
+  const { className } = props
+  const dispatch = useAppDispatch()
+  const articles = useSelector(getArticles.selectAll)
+  const isLoading = useSelector(getArticlePageIsLoading)
+  const view = useSelector(getArticlePageView)
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlePage())
+  }, [dispatch])
 
   const renderArticlesList: ItemContent<Article, any> = (index, data) => (
     <ArticleListItem
@@ -44,7 +47,7 @@ export const ArticlesPageVirtualList = (props: ArticlesPageVirtualListProps) => 
   )
 
   return (
-    <div className={classNames(cls.ArticlesPageVirtualList, {}, [className, cls[view]])}>
+    <div className={classNames(cls.ArticlesInfiniteList, {}, [className, cls[view]])}>
       {view === ArticleView.BIG
         ? (
         <Virtuoso
