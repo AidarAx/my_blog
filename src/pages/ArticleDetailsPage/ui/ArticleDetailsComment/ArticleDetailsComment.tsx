@@ -6,10 +6,8 @@ import { CommentList } from 'entities/Comment'
 import { useAppDispatch, useEffectOnce } from 'shared/lib'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text, TextSize } from 'shared/ui'
-import {
-  getArticleDetailsCommentsError,
-  getArticleDetailsCommentsIsLoading
-} from '../../model/selectors/selectors'
+import { getArticleDetailsCommentsError } from '../../model/selectors/getArticleDetailsCommentsError/getArticleDetailsCommentsError'
+import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import {
   fetchCommentsByArticleId

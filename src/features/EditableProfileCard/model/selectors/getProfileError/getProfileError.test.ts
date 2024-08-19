@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getProfileError } from './getProfileError'
 
-describe('getProfileError', () => {
+describe('getProfileError.test', () => {
   test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       profile: {

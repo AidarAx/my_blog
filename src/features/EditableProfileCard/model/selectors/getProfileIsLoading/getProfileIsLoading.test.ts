@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getProfileIsLoading } from './getProfileIsLoading'
 
-describe('getProfileIsLoading', () => {
+describe('getProfileIsLoading.test', () => {
   test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       profile: {

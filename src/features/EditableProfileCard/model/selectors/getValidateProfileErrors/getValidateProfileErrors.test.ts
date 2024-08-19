@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import { ValidateProfileError } from '../../types/editableProfileCardSchema'
 import { getValidateProfileErrors } from './getValidateProfileErrors'
 
-describe('getProfileReadonly', () => {
+describe('getValidateProfileErrors.test', () => {
   test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       profile: {

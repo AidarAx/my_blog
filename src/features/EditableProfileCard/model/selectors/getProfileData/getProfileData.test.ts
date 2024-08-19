@@ -3,7 +3,7 @@ import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 import { getProfileData } from './getProfileData'
 
-describe('getProfileData', () => {
+describe('getProfileData.test', () => {
   test('Should work with filled state', () => {
     const data = {
       firstname: 'Aidar',

@@ -1,13 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginIsLoading } from './getLoginIsLoading'
 
-describe('getLoginIsLoading', () => {
+describe('getLoginIsLoading.test', () => {
   test('Should work with filled state', () => {
-    const state: Partial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
-        error: 'error',
-        username: '123',
-        password: '123',
         isLoading: true
       }
     }
@@ -16,7 +13,7 @@ describe('getLoginIsLoading', () => {
   })
 
   test('Should work with empty state', () => {
-    const state: Partial<StateSchema> = {}
+    const state: DeepPartial<StateSchema> = {}
 
     expect(getLoginIsLoading(state as StateSchema)).toEqual(false)
   })

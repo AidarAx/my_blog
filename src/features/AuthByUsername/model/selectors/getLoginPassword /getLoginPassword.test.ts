@@ -1,14 +1,11 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginPassword } from './getLoginPassword'
 
-describe('getLoginPassword', () => {
+describe('getLoginPassword.test', () => {
   test('Should work with filled state', () => {
-    const state: Partial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
-        error: 'error',
-        username: '123',
-        password: '123',
-        isLoading: true
+        password: '123'
       }
     }
 
@@ -16,7 +13,7 @@ describe('getLoginPassword', () => {
   })
 
   test('Should work with empty state', () => {
-    const state: Partial<StateSchema> = {}
+    const state: DeepPartial<StateSchema> = {}
 
     expect(getLoginPassword(state as StateSchema)).toEqual('')
   })

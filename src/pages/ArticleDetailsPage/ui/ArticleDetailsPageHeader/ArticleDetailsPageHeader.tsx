@@ -6,7 +6,7 @@ import { getArticleDetailsData } from 'entities/Article'
 import { RoutePath } from 'shared/config'
 import { classNames } from 'shared/lib'
 import { Button, ButtonTheme } from 'shared/ui'
-import { getCanEditArticle } from '../../model/selectors/article'
+import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle'
 import * as cls from './ArticleDetailsPageHeader.module.scss'
 
 interface ArticleDetailsPageHeaderProps {

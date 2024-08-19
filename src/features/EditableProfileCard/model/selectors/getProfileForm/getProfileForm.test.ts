@@ -3,7 +3,7 @@ import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 import { getProfileForm } from './getProfileForm'
 
-describe('getProfileForm', () => {
+describe('getProfileForm.test', () => {
   test('Should work with filled state', () => {
     const data = {
       firstname: 'Aidar',

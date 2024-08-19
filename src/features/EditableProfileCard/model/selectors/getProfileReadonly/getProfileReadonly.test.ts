@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getProfileReadonly } from './getProfileReadonly'
 
-describe('getProfileReadonly', () => {
+describe('getProfileReadonly.test', () => {
   test('Should work with filled state', () => {
     const state: Partial<StateSchema> = {
       profile: {

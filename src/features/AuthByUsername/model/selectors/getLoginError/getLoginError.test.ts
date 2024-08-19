@@ -1,14 +1,11 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getLoginError } from './getLoginError'
 
-describe('getLoginError', () => {
+describe('getLoginError.test', () => {
   test('Should work with filled state', () => {
-    const state: Partial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
-        error: 'error',
-        username: '123',
-        password: '123',
-        isLoading: false
+        error: 'error'
       }
     }
 

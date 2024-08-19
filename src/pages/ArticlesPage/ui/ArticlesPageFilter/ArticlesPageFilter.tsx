@@ -7,13 +7,11 @@ import { ArticleSortField, ArticleView, ArticleViewSelectors, ArticleType } from
 import { classNames, useAppDispatch, useDebounce } from 'shared/lib'
 import { SortOrder } from 'shared/types/sortOrder'
 import { Card, Input } from 'shared/ui'
-import {
-  getArticlePageOrder,
-  getArticlePageSearch,
-  getArticlePageSort,
-  getArticlePageType,
-  getArticlePageView
-} from '../../model/selectors/articlePageSelectors'
+import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder'
+import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch'
+import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort'
+import { getArticlePageType } from '../../model/selectors/getArticlePageType/getArticlePageType'
+import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView'
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList'
 import { articlePageActions } from '../../model/slice/articlePageSlice'
 import * as cls from './ArticlesPageFilter.module.scss'
