@@ -181,7 +181,7 @@ const config: JestConfigWithTsJest = {
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
     '/node_modules/'
-  ]
+  ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -212,6 +212,14 @@ const config: JestConfigWithTsJest = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+  reporters: [
+    'default',
+    ['./node_modules/jest-html-reporter', {
+      pageTitle: 'Test Report',
+      outputPath: '<rootDir>/reports/unit/test-report.html'
+    }]
+  ]
 }
 
 export default config
