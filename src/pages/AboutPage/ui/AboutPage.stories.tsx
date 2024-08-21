@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import AboutPage from './AboutPage'
 
 const meta = {
-  title: 'Pages/AboutPage',
+  title: 'Pages/ForbiddenPage',
   component: AboutPage
 } satisfies Meta<typeof AboutPage>
 
