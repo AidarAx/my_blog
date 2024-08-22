@@ -6,6 +6,7 @@ import { Currency } from 'entities/Currency'
 import { ProfileCard } from 'entities/Profile'
 import { classNames, DynamicModuleLoader, ReducersList, useAppDispatch, useEffectOnce } from 'shared/lib'
 import { Text, TextTheme } from 'shared/ui'
+import { ValidateProfileError } from '../../model/consts/consts'
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
@@ -13,7 +14,6 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getValidateProfileErrors } from '../../model/selectors/getValidateProfileErrors/getValidateProfileErrors'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { editableProfileCardActions, editableProfileCardReducers } from '../../model/slice/editableProfileCardSlice'
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 interface EditableProfileCardProps {

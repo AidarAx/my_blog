@@ -1,6 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { classNames } from 'shared/lib'
-import { Article, ArticleView } from '../../model/types/article'
+import { ArticleView } from '../../model/consts/consts'
+import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import * as cls from './ArticleList.module.scss'

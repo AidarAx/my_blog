@@ -1,6 +1,6 @@
-import { ArticleView } from 'entities/Article'
 import { classNames } from 'shared/lib'
 import { Card, Skeleton } from 'shared/ui'
+import { ArticleView } from '../../model/consts/consts'
 import * as cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemSkeletonProps {

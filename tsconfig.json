@@ -12,6 +12,7 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "strict": true,
+    "isolatedModules": true,
     "paths": {
       "app/*": ["./src/app/*"],
       "pages/*": ["./src/pages/*"],

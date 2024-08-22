@@ -2,7 +2,8 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { memo, ReactNode } from 'react'
 import { classNames } from 'shared/lib'
 import { DropdownDirection } from 'shared/types'
-import { AppLink, Button } from 'shared/ui'
+import { AppLink } from '../AppLink/AppLink'
+import { Button } from '../Button/Button'
 import * as cls from './Dropdown.module.scss'
 
 export interface DropdownItems {

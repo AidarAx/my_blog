@@ -3,7 +3,7 @@ import ListIcon from 'shared/assets/icons/list-24-24.svg'
 import TiledIcon from 'shared/assets/icons/tiled-24-24.svg'
 import { classNames } from 'shared/lib'
 import { Button, ButtonTheme, Icon } from 'shared/ui'
-import { ArticleView } from '../../model/types/article'
+import { ArticleView } from '../../model/consts/consts'
 import * as cls from './ArticleViewSelectors.module.scss'
 
 interface ArticleViewSelectorsProps {

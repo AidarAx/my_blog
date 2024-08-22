@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: 'const meta = {\n' +
+    children: 'consts meta = {\n' +
       '  title: \'Shared/Code\',\n' +
       '  component: Code\n' +
       '} satisfies Meta<typeof Code>'

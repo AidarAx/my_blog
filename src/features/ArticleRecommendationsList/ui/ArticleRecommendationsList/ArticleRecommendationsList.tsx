@@ -14,7 +14,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
   const { className } = props
   const { t } = useTranslation()
   const { isLoading, data: articles, error } = useArticleRecommendationsList(4)
-  console.log(articles)
 
   return (
     <VStack className={classNames('', {}, [className])}>

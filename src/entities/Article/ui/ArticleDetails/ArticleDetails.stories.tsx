@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Article } from 'entities/Article'
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { ArticleBlockType, ArticleType } from '../../model/consts/consts'
 import { ArticleDetails } from './ArticleDetails'
 
 const meta = {
@@ -58,7 +58,7 @@ export const article: Article = {
     {
       id: '3',
       type: ArticleBlockType.CODE,
-      code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+      code: "consts path = require('path');\n\nconsts server = jsonServer.create();\n\nconsts router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
     },
     {
       id: '7',
