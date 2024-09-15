@@ -1,5 +1,5 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
-import { scrollRestorationReducers } from 'features/ScrollRestoration'
+import { scrollRestorationReducers } from 'features/scrollRestoration'
 import { counterReducers } from 'entities/Counter'
 import { userReducers } from 'entities/User'
 import { rtkApi } from 'shared/api'

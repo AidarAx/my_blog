@@ -5,7 +5,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import {
   getScrollRestorationByPath,
   scrollRestorationActions
-} from 'features/ScrollRestoration'
+} from 'features/scrollRestoration'
 import { classNames, useInfiniteScroll, useAppDispatch, useThrottle } from 'shared/lib'
 import * as cls from './Page.module.scss'
 

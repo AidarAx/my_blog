@@ -1,0 +1,23 @@
+.menu {
+  background-color: var(--dropdown-bg);
+  position: absolute;
+  z-index: 1000;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.item[data-focus] {
+  background: var(--inverted-primary-color);
+}
