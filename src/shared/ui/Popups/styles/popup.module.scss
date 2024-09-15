@@ -1,0 +1,31 @@
+.popup {
+  position: relative;
+}
+
+.trigger {
+  border: none;
+  outline: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.optionsTopLeft {
+  bottom: 100%;
+  left: 0;
+}
+
+.optionsTopRight {
+  bottom: 100%;
+  right: 0;
+}
+
+.optionsBottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.optionsBottomRight {
+  left: 0;
+  top: 100%;
+}
