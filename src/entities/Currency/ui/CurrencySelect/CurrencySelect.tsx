@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib'
-import { ListBox } from 'shared/ui'
+import { classNames } from '@/shared/lib'
+import { ListBox } from '@/shared/ui'
 import { Currency } from '../../model/types/currency'
 import * as cls from './CurrencySelect.module.scss'
 

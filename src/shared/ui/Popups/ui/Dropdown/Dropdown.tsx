@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Fragment, memo, ReactNode } from 'react'
-import { classNames } from 'shared/lib'
+import { classNames } from '@/shared/lib'
 import { DropdownDirection } from '../../../../types/ui'
 import { AppLink } from '../../../AppLink/AppLink'
 import { Button } from '../../../Button/Button'

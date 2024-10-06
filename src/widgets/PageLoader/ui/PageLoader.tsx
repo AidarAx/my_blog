@@ -1,7 +1,7 @@
 import { memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { HStack } from 'shared/ui'
-import { Loader } from 'shared/ui/Loader/Loader'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { HStack } from '@/shared/ui'
+import { Loader } from '@/shared/ui/Loader/Loader'
 import * as cls from './PageLoader.module.scss'
 
 interface PageLoaderProps {

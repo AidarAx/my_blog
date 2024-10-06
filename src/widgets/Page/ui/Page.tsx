@@ -1,12 +1,12 @@
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { StateSchema } from 'app/providers/StoreProvider'
+import { StateSchema } from '@/app/providers/StoreProvider'
 import {
   getScrollRestorationByPath,
   scrollRestorationActions
-} from 'features/scrollRestoration'
-import { classNames, useInfiniteScroll, useAppDispatch, useThrottle } from 'shared/lib'
+} from '@/features/scrollRestoration'
+import { classNames, useInfiniteScroll, useAppDispatch, useThrottle } from '@/shared/lib'
 import * as cls from './Page.module.scss'
 
 interface PageProps {

@@ -1,5 +1,5 @@
-import { ValidateProfileError } from 'features/editableProfileCard/model/consts/consts'
-import { Profile } from 'entities/Profile'
+import { ValidateProfileError } from '@/features/editableProfileCard/model/consts/consts'
+import { Profile } from '@/entities/Profile'
 
 export interface EditableProfileCardSchema {
   data?: Profile

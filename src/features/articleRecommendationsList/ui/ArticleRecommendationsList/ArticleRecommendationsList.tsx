@@ -1,8 +1,8 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ArticleList } from 'entities/Article'
-import { classNames } from 'shared/lib'
-import { Text, TextSize, VStack } from 'shared/ui'
+import { ArticleList } from '@/entities/Article'
+import { classNames } from '@/shared/lib'
+import { Text, TextSize, VStack } from '@/shared/ui'
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi'
 import * as cls from './ArticleRecommendationsList.module.scss'
 

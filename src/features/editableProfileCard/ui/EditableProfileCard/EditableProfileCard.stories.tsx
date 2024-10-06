@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
 import { EditableProfileCard } from './EditableProfileCard'
 
 const meta = {

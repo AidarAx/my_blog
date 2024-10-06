@@ -1,6 +1,6 @@
-import { RoutePath } from 'shared/config'
-import { classNames } from 'shared/lib'
-import { Avatar, Skeleton, AppLink, Text } from 'shared/ui'
+import { RoutePath } from '@/shared/config'
+import { classNames } from '@/shared/lib'
+import { Avatar, Skeleton, AppLink, Text } from '@/shared/ui'
 import { Comment } from '../../model/types/comment'
 import * as cls from './CommentCard.module.scss'
 

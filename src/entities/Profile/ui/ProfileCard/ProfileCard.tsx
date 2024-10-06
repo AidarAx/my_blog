@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Country, CountrySelect } from 'entities/Country'
-import { Currency, CurrencySelect } from 'entities/Currency'
-import { classNames, Mods } from 'shared/lib'
-import { Text, TextAlign, TextTheme, Input, Loader, Avatar, HStack, VStack } from 'shared/ui'
+import { Country, CountrySelect } from '@/entities/Country'
+import { Currency, CurrencySelect } from '@/entities/Currency'
+import { classNames, Mods } from '@/shared/lib'
+import { Text, TextAlign, TextTheme, Input, Loader, Avatar, HStack, VStack } from '@/shared/ui'
 import { Profile } from '../../model/types/profile'
 import * as cls from './ProfileCard.module.scss'
 

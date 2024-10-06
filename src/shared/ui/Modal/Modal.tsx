@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useTheme } from 'app/providers/ThemeProvider'
+import { useTheme } from '@/app/providers/ThemeProvider'
 import { classNames, Mods } from '../../lib/classNames/classNames'
 import { useModal } from '../../lib/hooks/useModal/useModal'
 import { Overlay } from '../Overlay/Overlay'
