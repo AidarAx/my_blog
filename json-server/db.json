@@ -1469,5 +1469,51 @@
       "username": "Gulnaz",
       "avatar": "https://sun59-1.userapi.com/s/v1/ig2/_gO3A51p9BzpZahOcFI1q2NbDU7ABVzGTBv45slbjy4HDoAEQMfk6Vls8janSospHVAy2ZBGIKL0YPoC8cUYq31O.jpg?quality=95&crop=0,4,2526,2526&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&ava=1&u=hd3IpQ3lD8Zh3oP8Wk-Wrj9KQNH0pdqsI0IP5ck09lg&cs=400x400"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "asdadsd",
+      "id": "twwptu4"
+    },
+    {
+      "rate": 1,
+      "feedback": "отстой",
+      "userId": "1",
+      "articleId": "10",
+      "id": "VieJHIw"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

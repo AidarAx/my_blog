@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib'
-import { Button, ButtonTheme, HStack, Input, Modal, StarRating, Text, VStack } from '@/shared/ui'
+import { Button, ButtonTheme, Card, HStack, Input, Modal, StarRating, Text, TextAlign, VStack } from '@/shared/ui'
 import * as cls from './RatingCard.module.scss'
 
 interface RatingCardProps {
@@ -11,6 +10,7 @@ interface RatingCardProps {
   hasFeedback?: boolean
   onCancel?: (starsCount: number) => void
   onAccept?: (starsCount: number, feedback?: string) => void
+  rate?: number
 }
 
 export const RatingCard = (props: RatingCardProps) => {
@@ -20,13 +20,14 @@ export const RatingCard = (props: RatingCardProps) => {
     feedbackTitle,
     hasFeedback,
     onCancel,
-    onAccept
+    onAccept,
+    rate = 0
   } = props
 
   const { t } = useTranslation()
 
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
-  const [starsCount, setStarsCount] = useState<number>(0)
+  const [starsCount, setStarsCount] = useState<number>(rate)
   const [feedback, setFeedback] = useState<string>('')
 
   const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -46,14 +47,14 @@ export const RatingCard = (props: RatingCardProps) => {
 
   const cancelHandler = useCallback(() => {
     setIsOpenModal(false)
-    onAccept?.(starsCount)
+    onCancel?.(starsCount)
   }, [onAccept, starsCount])
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <VStack align="center" gap={'8'}>
-        <Text title={title}/>
-        <StarRating size={40} onSelect={onSelectStars} />
+    <Card className={className}>
+      <VStack max align="center" gap={'8'}>
+        <Text title={starsCount ? t('Спасибо за оценку') : title} align={TextAlign.CENTER}/>
+        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
       </VStack>
       <Modal isOpen={isOpenModal} lazy>
         <VStack max gap={'16'}>
@@ -80,6 +81,6 @@ export const RatingCard = (props: RatingCardProps) => {
           </Button>
         </HStack>
       </Modal>
-    </div>
+    </Card>
   )
 }

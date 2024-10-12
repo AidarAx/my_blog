@@ -16,7 +16,7 @@ const stars = [1, 2, 3, 4, 5]
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, selectedStars = 0, onSelect, size = 30 } = props
 
-  const [currentStarsCount, setCurrentStarsCount] = useState<number>(0)
+  const [currentStarsCount, setCurrentStarsCount] = useState<number>(selectedStars)
   const [isSelected, setIsSelected] = useState<boolean>(!!selectedStars)
 
   const onHover = useCallback((starsCount: number) => () => {
@@ -40,7 +40,7 @@ export const StarRating = memo((props: StarRatingProps) => {
   }, [isSelected, onSelect])
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <div className={classNames(cls.starRating, {}, [className])}>
       {stars.map((starNumber) => (
         <Icon
           className={classNames(

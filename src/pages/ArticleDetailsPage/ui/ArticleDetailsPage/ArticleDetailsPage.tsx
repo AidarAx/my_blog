@@ -2,6 +2,7 @@ import { FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { Page } from '@/widgets/Page'
+import { ArticleRating } from '@/features/articleRating'
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
 import { ArticleDetails } from '@/entities/Article'
 import { classNames, DynamicModuleLoader, ReducersList } from '@/shared/lib'
@@ -32,11 +33,16 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     )
   }
 
+  if (!id) {
+    return null
+  }
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page className={classNames(cls.articleDetailsPage, {}, [])}>
         <ArticleDetailsPageHeader/>
         <ArticleDetails id={id}/>
+        <ArticleRating articleId={id}/>
         <ArticleRecommendationsList/>
         <ArticleDetailsComment id={id}/>
       </Page>

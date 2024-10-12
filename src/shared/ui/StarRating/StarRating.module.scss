@@ -1,6 +1,12 @@
+.starRating {
+  display: flex;
+  gap: 8px;
+}
+
 .starIcon {
   stroke: var(--primary-color);
   cursor: pointer;
+  stroke-width: 2px;
 }
 
 .normal {
